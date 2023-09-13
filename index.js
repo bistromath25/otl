@@ -15,14 +15,24 @@ app.get("/", function(req, res) {
     res.sendFile(process.cwd() + "/public/index.html");
 });
 
-// generate random alphanumeric string of length n
 function generate(n) {
+    // generate random alphanumeric string of length n
     var res = "";
-    var an="1234567890abcdefhijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ";
+    const an="1234567890abcdefhijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ";
     for (var i = 0; i < n; i++) {
         res += an.charAt(Math.floor((Math.random() * an.length)) % an.length);
     }
     return res;
+}
+
+function saveUrl() {
+    // add the url into the database
+}
+
+function copyLink() {
+    // copy the shortened url
+    document.getElementById("shortenedUrl").select()
+    document.execCommand("copy");
 }
 
 app.listen(3000, function() {
