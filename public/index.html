@@ -3,17 +3,40 @@
 
 <head>
 	<title>otl</title>
-	<link href="/public/css/style.css" rel="stylesheet" type="text/css">
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link href="/public/output.css" rel="stylesheet">
 </head>
 
 <body>
-    <div><h1>otl</h1></div>
-	<div id="form">
-		<form action="/link" method="POST" enctype="application/x-www-form-urlencoded">
-			<label for="url">URL: </label>
-			<input type="text" id="url" name="url" required>
-			<input type="submit" value="Go!">
-		</form>
+	<h1 class="flex flex-col justify-center items-center font-extrabold text-7xl m-10">One-Time Link</h1>
+	<div class="flex flex-col justify-center align-middle">
+		<div class="p-4 flex justify-center items-center">
+			<h2 class="font-bold text-3xl mr-5">Enter link here: </h2>
+			<form class="w-full max-w-sm">
+				<div class="flex items-center rounded-sm border-black py-2">
+					<input class="appearance-none block w-full bg-gray-200 text-gray-700 mr-3 border border-black-500 rounded py-2 px-3 leading-tight focus:outline-none focus:bg-white" type="text" placeholder="url-to-your-site">
+					<button onclick="saveUrl()" class="flex-shrink-0 bg-teal-500 hover:bg-teal-700 border-teal-500 hover:border-teal-700 text-sm border-4 text-white py-1 px-2 rounded" type="button">
+						Go
+					</button>
+				</div>
+			  </form>
+		</div>
+
+		<div class="p-4 flex justify-center items-center">
+			<h2 class="font-bold text-3xl mr-5">Shortened link:</h2> 
+			<form class="w-full max-w-sm">
+				<div class="flex items-center py-2">
+					<input id="shortenedUrl" class="appearance-none block w-full bg-gray-200 text-gray-700 mr-3 border border-black-500 rounded py-2 px-3 leading-tight focus:outline-none focus:bg-white" type="text" placeholder="url-to-your-site">
+					<button onclick="copyLink()" class="flex-shrink-0 bg-teal-500 hover:bg-teal-700 border-teal-500 hover:border-teal-700 text-sm border-4 text-white py-1 px-2 rounded" type="button">
+					<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 125 125" stroke="currentColor" class="w-5 h-5">
+						<path d="M89.62,13.96v7.73h12.19h0.01v0.02c3.85,0.01,7.34,1.57,9.86,4.1c2.5,2.51,4.06,5.98,4.07,9.82h0.02v0.02 v73.27v0.01h-0.02c-0.01,3.84-1.57,7.33-4.1,9.86c-2.51,2.5-5.98,4.06-9.82,4.07v0.02h-0.02h-61.7H40.1v-0.02 c-3.84-0.01-7.34-1.57-9.86-4.1c-2.5-2.51-4.06-5.98-4.07-9.82h-0.02v-0.02V92.51H13.96h-0.01v-0.02c-3.84-0.01-7.34-1.57-9.86-4.1 c-2.5-2.51-4.06-5.98-4.07-9.82H0v-0.02V13.96v-0.01h0.02c0.01-3.85,1.58-7.34,4.1-9.86c2.51-2.5,5.98-4.06,9.82-4.07V0h0.02h61.7 h0.01v0.02c3.85,0.01,7.34,1.57,9.86,4.1c2.5,2.51,4.06,5.98,4.07,9.82h0.02V13.96L89.62,13.96z M79.04,21.69v-7.73v-0.02h0.02 c0-0.91-0.39-1.75-1.01-2.37c-0.61-0.61-1.46-1-2.37-1v0.02h-0.01h-61.7h-0.02v-0.02c-0.91,0-1.75,0.39-2.37,1.01 c-0.61,0.61-1,1.46-1,2.37h0.02v0.01v64.59v0.02h-0.02c0,0.91,0.39,1.75,1.01,2.37c0.61,0.61,1.46,1,2.37,1v-0.02h0.01h12.19V35.65 v-0.01h0.02c0.01-3.85,1.58-7.34,4.1-9.86c2.51-2.5,5.98-4.06,9.82-4.07v-0.02h0.02H79.04L79.04,21.69z M105.18,108.92V35.65v-0.02 h0.02c0-0.91-0.39-1.75-1.01-2.37c-0.61-0.61-1.46-1-2.37-1v0.02h-0.01h-61.7h-0.02v-0.02c-0.91,0-1.75,0.39-2.37,1.01 c-0.61,0.61-1,1.46-1,2.37h0.02v0.01v73.27v0.02h-0.02c0,0.91,0.39,1.75,1.01,2.37c0.61,0.61,1.46,1,2.37,1v-0.02h0.01h61.7h0.02 v0.02c0.91,0,1.75-0.39,2.37-1.01c0.61-0.61,1-1.46,1-2.37h-0.02V108.92L105.18,108.92z" fill="white"/>
+					</svg>
+					</button>
+				</div>
+			  </form>
+		</div>
 	</div>
+	<script src="../index.js"></script>
 </body>
 </html>
