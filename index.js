@@ -38,8 +38,9 @@ function copyLink() {
     document.execCommand("copy");
 }
 
-app.post('/link', function(req, res) {
-    console.log(req.body);
+app.post('/upload', function(req, res) {
+    var real = req.body.real; // get the real url
+    var short = BASE_URL + "/" + generate(5); // generate the short url
     res.sendFile(process.cwd() + "/public/index.html");
 });
 
