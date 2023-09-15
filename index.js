@@ -43,13 +43,12 @@ function copyLink() {
 
 app.post('/upload', function(req, res) {
     var real = req.body.real; // get the real url
-    var short = BASE_URL + '/' + generate(5); // generate the short url
+    var short = generate(5); // generate the short url
     db.run(`INSERT INTO links(real, short, visits) VALUES(?, ?, ?)`, [real, short, 0], function(e) {
         if (e) {
             return console.log(e);
         }
     });
-    db.close();
     res.sendFile(process.cwd() + '/public/index.html');
 });
 
