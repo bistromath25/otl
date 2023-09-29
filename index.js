@@ -7,15 +7,10 @@ const bodyParser = require('body-parser');
 const json = require('stream/consumers');
 const favicon = require('serve-favicon');
 const db = new sqlite3.Database('./links.db');
-//const jsdom = require('jsdom');
 db.run('CREATE TABLE IF NOT EXISTS links(real TEXT, short TEXT, visited BOOLEAN)');
 
 const app = express();
 const BASE_URL = 'localhost:3000'; // TODO set base url
-
-//const { JSDOM } = jsdom;
-//const dom = new JSDOM('<input id="shortenedUrl" class="appearance-none block w-full bg-gray-200 text-gray-700 mr-3 border border-black-500 rounded py-2 px-3 leading-tight focus:outline-none focus:bg-white" type="text" placeholder="url-to-your-site">');
-//global.document = dom.window.document;
 
 app.engine('html', require('ejs').renderFile);
 
@@ -50,11 +45,6 @@ app.post('/upload', function(req, res) {
         }
     });
 
-    //const ret = document.getElementById('shortenedUrl'); 
-    //console.log(ret === undefined);
-    //ret.textContent = BASE_URL + '/' + short; 
-    
-    // res.sendFile(process.cwd() + '/public/index.html');
     res.render(__dirname + '/public/index.html', {'link': BASE_URL + "/" + short});
 });
 
